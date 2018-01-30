@@ -19,12 +19,33 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
+#features_train = features_train[:len(features_train)/10]
+#labels_train = labels_train[:len(labels_train)/10]
+
 
 
 
 #########################################################
 ### your code goes here ###
+from sklearn.svm import SVC
+clf = SVC(kernel='rbf', C = 10000.0)
+t0 = time()
+clf.fit(features_train, labels_train)
+print 'Training took: ', (round(time() - t0, 3)), 's'
+t0 = time()
+pred = clf.predict(features_test)
+print 'Predicting took: ', (round(time() - t0, 3)), 's'
 
+from sklearn.metrics import accuracy_score
+
+print accuracy_score(pred, labels_test)
+
+count = 0
+for numb in pred:
+  if(numb==1):
+    count += 1
+
+print count, " emails from chris"
 #########################################################
 
 
