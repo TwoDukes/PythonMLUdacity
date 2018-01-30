@@ -32,8 +32,9 @@ t0 = time()
 clf.fit(features_train, labels_train)
 print "training time:", round(time()-t0, 3), "s"
 t0 = time()
-clf.predict(features_test)
-print "prdiction time:", round(time()-t0, 3), "s"
+prediction = clf.predict(features_test)
+print prediction
+print "prediction time:", round(time()-t0, 3), "s"
 print "Accuracy: ", round(clf.score(features_test, labels_test), 3), "%"
 
 
