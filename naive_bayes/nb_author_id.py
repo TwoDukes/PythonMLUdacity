@@ -33,7 +33,11 @@ clf.fit(features_train, labels_train)
 print "training time:", round(time()-t0, 3), "s"
 t0 = time()
 prediction = clf.predict(features_test)
-print prediction
+#for i in range(len(prediction)):
+#  if(prediction[i] == 0):
+#    print "Sara"
+#  else:
+#    print "Chris"
 print "prediction time:", round(time()-t0, 3), "s"
 print "Accuracy: ", round(clf.score(features_test, labels_test), 3), "%"
 
