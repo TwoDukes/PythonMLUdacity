@@ -33,6 +33,7 @@ clf.fit(features_train, labels_train)
 print "training time:", round(time()-t0, 3), "s"
 t0 = time()
 prediction = clf.predict(features_test)
+#Uncomment to output all email predictions with their author
 #for i in range(len(prediction)):
 #  if(prediction[i] == 0):
 #    print "Sara"
