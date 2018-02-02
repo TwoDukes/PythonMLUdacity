@@ -24,15 +24,23 @@ plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
 plt.legend()
 plt.xlabel("bumpiness")
 plt.ylabel("grade")
-plt.show()
+#plt.show()
 ################################################################################
 
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
-
-
-
+print "Importing Classifier"
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+print "Initiallizing classifier"
+clf = KNeighborsClassifier(n_neighbors = 26, weights = 'uniform')
+print "Training..."
+clf.fit(features_train,labels_train)
+print "Predicting..."
+pred = clf.predict(features_test)
+acc = accuracy_score(pred, labels_test)
+print 'Accuracy: ', acc * 100, '%'
 
 
 
